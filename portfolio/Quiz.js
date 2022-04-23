@@ -12,28 +12,28 @@ let questions = [
     title: "Question 1",
     multipleAnswers: true,
     answers: [
-      { correct: false, title: "Question 1" },
-      { correct: true, title: "Question 2" },
-      { correct: true, title: "Question 3" },
-      { correct: true, title: "Question 4" },
+      { correct: false, title: "Answer 1" },
+      { correct: true, title: "Answer 2" },
+      { correct: true, title: "Answer 3" },
+      { correct: true, title: "Answer 4" },
     ]
   },
   {
     title: "Question 2",
     answers: [
-      { correct: false, title: "Question A" },
-      { correct: false, title: "Question B" },
-      { correct: false, title: "Question C" },
-      { correct: true, title: "Question D" },
+      { correct: false, title: "Answer A" },
+      { correct: false, title: "Answer B" },
+      { correct: false, title: "Answer C" },
+      { correct: true, title: "Answer D" },
     ]
   },
   {
     title: "Question 3",
     answers: [
-      { correct: true, title: "Question A" },
-      { correct: false, title: "Question B" },
-      { correct: false, title: "Question C" },
-      { correct: false, title: "Question D" },
+      { correct: true, title: "Answer A" },
+      { correct: false, title: "Answer B" },
+      { correct: false, title: "Answer C" },
+      { correct: false, title: "Answer D" },
     ]
   },
 
@@ -86,8 +86,8 @@ export default function Quiz() {
   return (<>
   
     <View style={styles.container}>
-      <Text>Quiz Application</Text>
-      <Timer></Timer>
+      <Text style = {styles.title}>Quiz Application</Text>
+      {score === undefined ? <Timer></Timer> : undefined}
       <FlatList data = {questions} renderItem={({item, index})=>
       <Question showAnswers = {score !== undefined}data={item} key={index} setAnswers={(answers) => 
         setAnswers(prev => {
@@ -163,6 +163,9 @@ function Question({ data, answers, showAnswers, setAnswers }) {
 }
 
 const styles = StyleSheet.create({
+  title:{
+fontSize:25
+  },
   incorrect:{
     textDecorationLine: "line-through",
     textDecorationStyle: "solid"

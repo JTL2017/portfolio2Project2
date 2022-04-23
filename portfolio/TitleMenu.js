@@ -13,9 +13,9 @@ export default function TitleMenu()
     let [checked, setchecked] = useState(false)
     let doCheck = useCallback(() => {
         
-        if(password == "hi" )
+        if(password == "testing" )
         {
-            console.log("Hi")
+            
             setchecked(true)
         }
 
@@ -33,9 +33,10 @@ export default function TitleMenu()
         <View styles = {styles.container}>
     
 
-    <Text> Welcome, Please have a faculty member enter the schools five digit passcode to start the Quiz. </Text>
+    <Text style = {styles.intro}> Welcome, Please have a faculty member enter the schools five digit password to start the Quiz. </Text>
     <TextInput secureTextEntry={true} value={password} onChangeText={text => setPassword(text)} placeholder="Password" style = {styles.input}></TextInput>
         <Button title = "Submit" onPress={() => doCheck()}></Button>
+        <Text>Password: "testing"</Text>
         
         </View>
         </Card>
@@ -43,6 +44,10 @@ export default function TitleMenu()
     )
 }
 const styles = StyleSheet.create({
+    intro:{
+    fontSize: 30,
+    
+    },
     innercontainer:
   {
     maxWidth: 300,
@@ -67,5 +72,6 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center',
+      
     },
   });
